@@ -10,6 +10,9 @@ Dockerfile for scheduled postgres dumps and upload to s3.
 docker build --build-arg "POSTGRES_IMAGE_TAG=13.5" -t pg_dump_s3 .
 ```
 
+It takes `POSTGRES_IMAGE_TAG` as a build arg so that the postgres version in this image can match the version you want a backup from.
+Thats necessary because `pg_dump` works best on databases with the same postgres version.
+
 See the _Tested images_ section for a list of images that should work.
 
 ### Starting a Container
@@ -44,15 +47,15 @@ See [https://crontab.guru/examples.html](https://crontab.guru/examples.html) for
 
 ## Tested Postgres Images
 
-The dockerfile allows to specify the postgres image tag with a build arg, e.g. `POSTGRES_IMAGE_TAG=14.1`.
-It's not granted that it'll work with all images tags (e.g. `*-alpine` images won't work).
-
 It uses official postgres images from [https://hub.docker.com/\_/postgres](https://hub.docker.com/_/postgres).
 
-I tested the dockerfile with a few of them.
+The dockerfile allows to specify the image tag with a build arg, e.g. `POSTGRES_IMAGE_TAG=14.1`.
+It's not granted that it'll work with all image tags (e.g. `*-alpine` images don't work).
+
+I tested the dockerfile with a few tags.
 Feel free to open a PR if you want to edit the list.
 
-| image tag       | works |
+| Image Tag       | Works |
 | --------------- | ----- |
 | `14.1`          | ✅    |
 | `14.1-bullseye` | ✅    |

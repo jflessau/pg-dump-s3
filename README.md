@@ -4,7 +4,7 @@ Dockerfile for scheduled postgres dumps and upload to s3.
 
 ## Usage
 
-### Building the image
+### Building the Image
 
 ```bash
 docker build --build-arg "POSTGRES_IMAGE_TAG=13.5" -t pg_dump_s3 .
@@ -15,7 +15,7 @@ Thats necessary because `pg_dump` works best on databases with the same postgres
 
 See the _Tested images_ section for a list of images that should work.
 
-### Starting a Container
+### Starting the Container
 
 ```bash
 docker run \
@@ -30,7 +30,7 @@ docker run \
   pg_dump_s3
 ```
 
-### Env Vars
+#### Env Vars
 
 | Name                  | Example Value                                 | Required |
 | --------------------- | --------------------------------------------- | -------- |
